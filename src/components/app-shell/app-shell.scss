@@ -1,0 +1,74 @@
+// #app__content {
+//     display: flex;
+//     width: 90vw;
+// }
+
+.ant-layout {
+  background-color: #f8f8f8 !important;
+  height: 100vh !important;
+  overflow-x: hidden !important;
+}
+
+.ant-layout-header {
+  padding: 0 24px !important;
+}
+
+// @import "../sidebar/styles.scss";
+.grid-container {
+  height: 100%;
+  display: flex;
+  position: relative;
+  .main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 48px;
+  }
+}
+
+#backdrop {
+  opacity: 1;
+}
+
+.logo {
+  &__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 86vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+  }
+  &__backdrop {
+    max-width: 100%;
+    height: 8rem;
+    opacity: 0.0513;
+  }
+}
+
+.sidebar {
+  &__main {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    &__backdrop {
+      height: 20rem;
+    }
+  }
+  .sidebar {
+    &__main {
+      display: block;
+    }
+  }
+}
+
+.app-header-skeleton .ant-skeleton {
+  line-height: 0 !important;
+}
