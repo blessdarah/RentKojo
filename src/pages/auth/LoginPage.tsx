@@ -1,12 +1,14 @@
 import { Button, Form, Input } from "antd";
 import React from "react";
 import { AuthService } from "../../services/auth/AuthService";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { userAtom } from "../../recoil/user/user-atom";
 import { Navigate, useNavigate } from "react-router-dom";
+import { useSetup } from "../../hooks/SetupHook";
 
 export const LoginPage: React.FC = () => {
   const [form] = Form.useForm();
+  const { setDefaultStates } = useSetup();
   const setUser = useSetRecoilState(userAtom);
   const navigate = useNavigate();
 
@@ -21,6 +23,8 @@ export const LoginPage: React.FC = () => {
       const response = await AuthService.login(values);
       if (response.success) {
         setUser(response.data);
+        //load app data for usage
+        setDefaultStates();
         navigate("/dashboard");
       }
     } catch (err) {

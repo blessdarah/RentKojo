@@ -85,7 +85,7 @@ const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <ProConfigProvider hashed={false}>
         <ProLayout
           logo="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4RigS-XU9n7biYln3l1igYBtgAVv3wjyWYw&usqp=CAU"
-          title="Inclusive Education"
+          title="RentKojo"
           prefixCls="my-prefix"
           bgLayoutImgList={[
             {
@@ -182,7 +182,7 @@ const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         {/* {auth &&
                                                         auth.user &&
                                                         auth.user?.profile.name} */}
-                        Ayeah Godlove
+                        Username
                       </p>
                       <Divider style={{ margin: 0, padding: 0 }} />
                     </>
@@ -233,8 +233,7 @@ const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   paddingBlockStart: 12,
                 }}
               >
-                <div>© {new Date().getFullYear()} Dama Finance</div>
-                <div>by DamaDev Team</div>
+                <div>© {new Date().getFullYear()} RentKojo</div>
               </div>
             );
           }}

@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import WelcomePage from "../pages/WelcomePage";
 import { LoginPage } from "../pages/auth/LoginPage";
 import { DashboardPage } from "../pages/DashboardPage";
+import { dashboardRoutes } from "./dashboard-routes";
 
 export const appRouter = createBrowserRouter([
   {
@@ -16,4 +17,6 @@ export const appRouter = createBrowserRouter([
     path: "/dashboard",
     element: <DashboardPage />,
   },
+
+  ...dashboardRoutes,
 ]);

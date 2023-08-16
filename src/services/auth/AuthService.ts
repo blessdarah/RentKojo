@@ -1,14 +1,9 @@
+import { apiUrl, authUrl } from "../../constants/common.constants";
+import { AuthInfo } from "../../models/AuthInfo";
 import { apiService } from "./ApiService";
 
-const authUrl = import.meta.env.VITE_AUTH_URL;
-const apiUrl = import.meta.env.VITE_API_URL;
-
-type AuthInfo = {
-  phoneNumber: string | number;
-  email: string;
-  password: string;
-};
 export const AuthService = {
+  users: async () => apiService.get(`${apiUrl}/users`),
   login: async (authData: AuthInfo) =>
     apiService.post(`${authUrl}/login`, authData),
   register: async (authData: AuthInfo) =>

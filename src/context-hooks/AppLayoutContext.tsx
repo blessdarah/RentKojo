@@ -12,7 +12,7 @@ type Props = {
 };
 
 export const AppLayoutProvider: FC<Props> = ({ children }) => {
-  const [layout, setLayout] = useState<"side" | "top">("top");
+  const [layout, setLayout] = useState<"side" | "top">("side");
 
   useEffect(() => {}, [layout]);
 
