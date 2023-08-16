@@ -31,7 +31,6 @@ export const CategoryForm: React.FC<Props> = ({
         response = await CategoryService.create(values);
         setCategories([...categories, response.data]);
       } else {
-        console.log("values: ", { ...category, ...values });
         response = await CategoryService.update({ ...category, ...values });
         console.log("values: ", response);
         const others = categories.filter(
