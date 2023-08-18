@@ -4,15 +4,14 @@ import "./styles.scss";
 import { MenuFoldOutlined } from "@ant-design/icons";
 import { SidebarNavigation } from "../components/welcome/navigation-menu.component";
 import { NavigationMenu } from "../components/welcome/sidebar-nav.component";
-import useToken from "antd/es/theme/useToken";
+import { ROUTES } from "../routes/routes";
+import { useNavigate } from "react-router-dom";
 
 const { Header } = Layout;
 
 const WelcomePage: React.FC = () => {
   const [show, setShow] = useState(false);
-  const [isLoading, setLoading] = useState(false);
-  const token = useToken();
-  console.log("token: ", token);
+  const navigate = useNavigate();
 
   const showDrawer = () => {
     setShow(true);
@@ -21,14 +20,14 @@ const WelcomePage: React.FC = () => {
     setShow(false);
   };
 
-  function login() {
-    setLoading(true);
-  }
-
   return (
     <>
       <Layout className="layout">
-        <SidebarNavigation onClose={onClose} visible={show} login={login} />
+        <SidebarNavigation
+          onClose={onClose}
+          visible={show}
+          login={() => navigate(ROUTES.AUTH.LOGIN)}
+        />
         <Header
           style={{
             position: "fixed",

@@ -1,5 +1,5 @@
-import { Button, Col, Form, Input, Row, Space, Typography } from "antd";
-import React from "react";
+import { App, Button, Form, Input, Space, Typography } from "antd";
+import React, { useState } from "react";
 import { AuthService } from "../../services/auth/AuthService";
 import { useSetRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
@@ -9,8 +9,10 @@ import { ROUTES } from "../../routes/routes";
 
 export const LoginPage: React.FC = () => {
   const [form] = Form.useForm();
+  const { notification } = App.useApp();
   const { setDefaultStates } = useSetup();
   const setUser = useSetRecoilState(userAtom);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const initialValues = {
@@ -20,16 +22,25 @@ export const LoginPage: React.FC = () => {
   };
 
   const onFinish = async (values: any) => {
+    setIsLoading(true);
     try {
       const response = await AuthService.login(values);
       if (response.success) {
         setUser(response.data);
-        //load app data for usage
         setDefaultStates();
+        setIsLoading(false);
         navigate("/dashboard");
+        notification.success({
+          message: "Authentication successul!",
+          placement: "topRight",
+        });
       }
     } catch (err) {
-      console.log("err: ", err);
+      notification.error({
+        message: "Login error",
+        placement: "topRight",
+      });
+      setIsLoading(false);
     }
   };
 
@@ -54,7 +65,7 @@ export const LoginPage: React.FC = () => {
         </Form.Item>
 
         <Space>
-          <Button htmlType="submit" type="primary">
+          <Button htmlType="submit" type="primary" loading={isLoading}>
             Login
           </Button>
           <Button type="link" onClick={() => navigate(ROUTES.AUTH.SIGNUP)}>
