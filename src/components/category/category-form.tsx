@@ -1,5 +1,5 @@
 import { Button, Form, Input, message } from "antd";
-import React, { useEffect } from "react";
+import React from "react";
 import { useRecoilState } from "recoil";
 import { FormMode } from "../../constants/common.constants";
 import { useModalContext } from "../../context-hooks/AppModelContext";
@@ -26,7 +26,7 @@ export const CategoryForm: React.FC<Props> = ({
 
   const onFinish = async (values: Category) => {
     try {
-      let response;
+      let response: any;
       if (formMode === "create") {
         response = await CategoryService.create(values);
         setCategories([...categories, response.data]);
@@ -34,7 +34,7 @@ export const CategoryForm: React.FC<Props> = ({
         response = await CategoryService.update({ ...category, ...values });
         console.log("values: ", response);
         const others = categories.filter(
-          (item) => item.id !== response.data.id
+          (item: Category) => item.id !== response.data.id
         );
         setCategories([...others, response.data]);
       }

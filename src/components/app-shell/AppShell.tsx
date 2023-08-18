@@ -70,8 +70,8 @@ const AppShell: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     layout: layout,
     splitMenus: false,
   });
-  const [pathname, setPathname] = useState("/list/sub-page/sub-sub-page1");
-  const [num, setNum] = useState(40);
+  const [_, setPathname] = useState("/list/sub-page/sub-sub-page1");
+  // const [num, setNum] = useState(40);
   const navigate = useNavigate();
   // const { auth } = useAuthentication()
 
