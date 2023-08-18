@@ -1,10 +1,11 @@
-import { Button, Form, Input } from "antd";
+import { Button, Col, Form, Input, Row, Space, Typography } from "antd";
 import React from "react";
 import { AuthService } from "../../services/auth/AuthService";
 import { useSetRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
 import { useSetup } from "../../hooks/SetupHook";
 import { userAtom } from "../../recoil/user-atom";
+import { ROUTES } from "../../routes/routes";
 
 export const LoginPage: React.FC = () => {
   const [form] = Form.useForm();
@@ -33,13 +34,15 @@ export const LoginPage: React.FC = () => {
   };
 
   return (
-    <>
+    <div style={{ display: "grid", justifyItems: "center" }}>
       <Form
         form={form}
         initialValues={initialValues}
         onFinish={onFinish}
         layout="vertical"
+        style={{ width: "30rem", maxWidth: "90%", marginTop: "4rem" }}
       >
+        <Typography.Title>Login</Typography.Title>
         <Form.Item label="Phone number" name="phoneNumber">
           <Input type="tel" />
         </Form.Item>
@@ -49,8 +52,16 @@ export const LoginPage: React.FC = () => {
         <Form.Item label="Password" name="password">
           <Input type="password" />
         </Form.Item>
-        <Button htmlType="submit">Login</Button>
+
+        <Space>
+          <Button htmlType="submit" type="primary">
+            Login
+          </Button>
+          <Button type="link" onClick={() => navigate(ROUTES.AUTH.SIGNUP)}>
+            Sign up instead
+          </Button>
+        </Space>
       </Form>
-    </>
+    </div>
   );
 };

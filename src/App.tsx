@@ -3,13 +3,13 @@ import { RecoilRoot } from "recoil";
 import { AppLayoutProvider } from "./context-hooks/AppLayoutContext";
 import { AppModalProvider } from "./context-hooks/AppModelContext";
 import { appRouter } from "./routes/app-routes";
-import { ConfigProvider } from "antd";
+import { App, ConfigProvider } from "antd";
 import enUS from "antd/locale/en_US";
 import dayjs from "dayjs";
 
 dayjs().locale("en");
 
-export default function App() {
+export default function MyApp() {
   return (
     <RecoilRoot>
       <ConfigProvider
@@ -20,11 +20,13 @@ export default function App() {
           },
         }}
       >
-        <AppModalProvider>
-          <AppLayoutProvider>
-            <RouterProvider router={appRouter} />
-          </AppLayoutProvider>
-        </AppModalProvider>
+        <App>
+          <AppModalProvider>
+            <AppLayoutProvider>
+              <RouterProvider router={appRouter} />
+            </AppLayoutProvider>
+          </AppModalProvider>
+        </App>
       </ConfigProvider>
     </RecoilRoot>
   );

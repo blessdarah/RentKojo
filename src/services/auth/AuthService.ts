@@ -6,6 +6,6 @@ export const AuthService = {
   users: async () => apiService.get(`${apiUrl}/users`),
   login: async (authData: AuthInfo) =>
     apiService.post(`${authUrl}/login`, authData),
-  register: async (authData: AuthInfo) =>
+  signup: async (authData: AuthInfo) =>
     apiService.post(`${apiUrl}/users`, authData),
 };

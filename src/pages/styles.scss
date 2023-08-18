@@ -18,12 +18,7 @@
 
 .page__header {
   .logo {
-    color: #c5c6ca !important;
-  }
-  .navbar__item {
-    .navItem__link {
-      color: #c5c6ca;
-    }
+    color: #686868;
   }
   .navbar {
     display: flex;
@@ -39,7 +34,7 @@
 
 .page__header,
 .header .logo {
-  color: #003049 !important;
+  color: #686868;
   font-size: 16px;
   text-transform: capitalize;
   cursor: pointer;
@@ -52,31 +47,14 @@
   margin: 20px;
 
   .navItem__link {
-    color: #003049;
+    color: #686868;
     font-size: 16px;
     font-weight: 400;
     transition: all 0.5s ease-in-out;
     position: relative;
     text-transform: capitalize;
-
-    &::before {
-      content: attr(data-item);
-      transition: 0.5s;
-      color: #567dc7;
-      border-bottom: 1px solid #567dc7;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      width: 0;
-      overflow: hidden;
-    }
     &:hover {
-      &::before {
-        width: 100%;
-        transition: all 0.5s ease-in-out;
-      }
+      opacity: 0.8;
     }
   }
 }
@@ -96,17 +74,6 @@
   bottom: 0;
   position: absolute;
   z-index: 100;
-}
-
-//footer
-.footer__landing {
-  text-align: center;
-  color: white;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #003049 !important;
-  font-size: 17px;
 }
 
 .cover {

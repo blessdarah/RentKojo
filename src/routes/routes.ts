@@ -1,6 +1,12 @@
 export const ROUTES = {
   DEFAULT: "/",
   DASHBOARD: "/dashboard",
+  AUTH: {
+    LOGIN: "/login",
+    SIGNUP: "/signup",
+    FORGOT_PASSWORD: "forgot-password",
+    RESET_PASSWORD: "reset-password",
+  },
   STORES: {
     INDEX: "/stores",
     SHOW: "/stores/:id",

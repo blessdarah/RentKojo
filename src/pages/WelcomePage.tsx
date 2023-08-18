@@ -4,12 +4,15 @@ import "./styles.scss";
 import { MenuFoldOutlined } from "@ant-design/icons";
 import { SidebarNavigation } from "../components/welcome/navigation-menu.component";
 import { NavigationMenu } from "../components/welcome/sidebar-nav.component";
+import useToken from "antd/es/theme/useToken";
 
 const { Header } = Layout;
 
 const WelcomePage: React.FC = () => {
   const [show, setShow] = useState(false);
   const [isLoading, setLoading] = useState(false);
+  const token = useToken();
+  console.log("token: ", token);
 
   const showDrawer = () => {
     setShow(true);
@@ -19,7 +22,6 @@ const WelcomePage: React.FC = () => {
   };
 
   function login() {
-    console.log("redirecting login...", isLoading);
     setLoading(true);
   }
 
@@ -34,6 +36,7 @@ const WelcomePage: React.FC = () => {
             width: "100%",
             left: "0",
             top: "0",
+            backgroundColor: "#fff",
           }}
           className={"page__header"}
         >
@@ -42,10 +45,10 @@ const WelcomePage: React.FC = () => {
               style={{
                 fontSize: "20px",
                 fontWeight: "bold",
-                color: "#fff",
+                // color: token
               }}
             >
-              INCLUSIVE EDUCATION
+              RentKojo
             </p>
           </div>
 
@@ -73,55 +76,28 @@ const WelcomePage: React.FC = () => {
                 "url('https://img.freepik.com/free-photo/gray-abstract-wireframe-technology-background_53876-101941.jpg?w=1800&t=st=1674555061~exp=1674555661~hmac=86d5240e3d05adefe10c7b37c251408c42695d52de4891ec92ef72609240bb67')",
             }}
           >
-            <Typography.Title style={{ fontSize: "4.5rem" }}>
-              Building the next big thing
+            <Typography.Title
+              style={{
+                fontSize: "4.5rem",
+                fontWeight: "bold",
+                maxWidth: "70%",
+                margin: "0 auto",
+              }}
+            >
+              Rent and Sell anything from your fellow kojo
             </Typography.Title>
-            <Typography.Paragraph style={{ fontSize: "1.8rem", color: "gray" }}>
-              We're constantly improving this template
+            <Typography.Paragraph
+              style={{ fontSize: "1.2rem", color: "gray", marginTop: "1rem" }}
+            >
+              Rent and make money from any of your possessions through our
+              platform
             </Typography.Paragraph>
 
             <Button type="primary" size="large">
               Get started
             </Button>
-            <div
-              style={{
-                width: "70%",
-                height: "600px",
-                margin: "0 auto",
-                boxShadow: "3px 8px 17px #18181822",
-                borderRadius: "8px",
-                overflow: "hidden",
-                position: "relative",
-                marginTop: "2rem",
-              }}
-            >
-              <img
-                src="https://img.freepik.com/free-vector/dashboard-user-panel-template_52683-29382.jpg?w=1800&t=st=1674554169~exp=1674554769~hmac=295eedcef2dfd408b5faea0897cdc48d7f521f96b1d14dc6e01609e3b4a19577"
-                alt="dashboard"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                }}
-              />
-            </div>
           </div>
         </div>
-
-        <footer className="footer__landing">
-          <div className="container">
-            <p className="text-center text-white">
-              {" "}
-              &copy; 2023{" "}
-              <abbr
-                title="Cameroon Baptist Convention"
-                className="text-decoration-none"
-              >
-                CBC
-              </abbr>{" "}
-              Health Service
-            </p>
-          </div>
-        </footer>
       </Layout>
     </>
   );
