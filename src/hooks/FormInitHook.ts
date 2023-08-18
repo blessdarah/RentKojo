@@ -1,4 +1,5 @@
 import { FormInstance } from "antd";
+import dayjs from "dayjs";
 import { FieldData } from "rc-field-form/lib/interface";
 import { FormMode } from "../constants/common.constants";
 
@@ -27,14 +28,14 @@ export const useFormInit = () => {
         });
       });
 
-      // if (dateColumns && dateColumns.length > 0) {
-      //     dateColumns.map((col) => {
-      //         fieldData.push({
-      //             name: [col],
-      //             value: moment(obj[col as keyof T]),
-      //         })
-      //     })
-      // }
+      if (dateColumns && dateColumns.length > 0) {
+        dateColumns.map((col) => {
+          fieldData.push({
+            name: [col],
+            value: dayjs(obj[col as keyof T] as Date),
+          });
+        });
+      }
       form.setFields(fieldData);
     }
   }

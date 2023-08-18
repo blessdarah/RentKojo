@@ -1,12 +1,14 @@
 import {
-  UserOutlined,
-  HomeOutlined,
   SettingOutlined,
+  UserOutlined,
   UsergroupAddOutlined,
-  BankOutlined,
 } from "@ant-design/icons";
+import {
+  AiOutlineDashboard,
+  AiOutlineGift,
+  AiOutlineTag,
+} from "react-icons/ai";
 import { ROUTES } from "../routes/routes";
-import { AiOutlineDashboard } from "react-icons/ai";
 
 export default {
   route: {
@@ -17,11 +19,15 @@ export default {
         name: "Dashboard",
         icon: <AiOutlineDashboard />,
       },
-      ,
+      {
+        path: "/products",
+        name: "Products",
+        icon: <AiOutlineGift />,
+      },
       {
         path: "/",
-        name: "Common",
-        icon: <BankOutlined />,
+        name: "Tags & Categories",
+        icon: <AiOutlineTag />,
         routes: [
           {
             path: ROUTES.CATEGORIES.INDEX,

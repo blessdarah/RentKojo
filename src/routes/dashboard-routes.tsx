@@ -1,5 +1,7 @@
 import { DashboardPage } from "../pages/DashboardPage";
 import { CategoryPage } from "../pages/category/CategoryPage";
+import { ProductPage } from "../pages/product/ProductPage";
+import { TagPage } from "../pages/tag/TagPage";
 import { ROUTES } from "./routes";
 
 export const dashboardRoutes = [
@@ -9,7 +11,7 @@ export const dashboardRoutes = [
   },
   {
     path: ROUTES.TAGS.INDEX,
-    element: <DashboardPage />,
+    element: <TagPage />,
   },
   {
     path: ROUTES.CATEGORIES.INDEX,
@@ -21,6 +23,6 @@ export const dashboardRoutes = [
   },
   {
     path: ROUTES.PRODUCTS.INDEX,
-    element: <DashboardPage />,
+    element: <ProductPage />,
   },
 ];

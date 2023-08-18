@@ -2,9 +2,9 @@ import { Button, Form, Input } from "antd";
 import React from "react";
 import { AuthService } from "../../services/auth/AuthService";
 import { useSetRecoilState } from "recoil";
-import { userAtom } from "../../recoil/user/user-atom";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSetup } from "../../hooks/SetupHook";
+import { userAtom } from "../../recoil/user-atom";
 
 export const LoginPage: React.FC = () => {
   const [form] = Form.useForm();

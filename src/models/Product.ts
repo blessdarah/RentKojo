@@ -1,3 +1,6 @@
+import dayjs from "dayjs";
+import type { Dayjs } from "dayjs";
+
 export type Product = {
   id: string;
   storeId: string;
@@ -5,10 +8,10 @@ export type Product = {
   description: string;
   longDescription: string;
   condition: string;
-  availabilityStartDate: Date;
-  availabilityStartTime: Date;
-  availabilityEndDate: Date;
-  availabilityEndTime: Date;
+  availabilityStartDate: Dayjs;
+  availabilityStartTime: Dayjs;
+  availabilityEndDate: Dayjs;
+  availabilityEndTime: Dayjs;
 };
 
 export const emptyProduct: Product = {
@@ -18,8 +21,8 @@ export const emptyProduct: Product = {
   description: "",
   longDescription: "",
   condition: "",
-  availabilityStartDate: new Date(),
-  availabilityStartTime: new Date(),
-  availabilityEndDate: new Date(),
-  availabilityEndTime: new Date(),
+  availabilityStartDate: dayjs(new Date()),
+  availabilityStartTime: dayjs(new Date()),
+  availabilityEndDate: dayjs(new Date()),
+  availabilityEndTime: dayjs(new Date()),
 };
