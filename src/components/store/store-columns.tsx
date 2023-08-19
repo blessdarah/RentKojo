@@ -23,8 +23,7 @@ export const useStoreColumns = () => {
   const handleDelete = async (store: Store) => {
     const feedback = await StoreService.delete(store);
     if (feedback.success) {
-      const others = stores.filter((item) => item.id !== store.id);
-      setStores(others);
+      setStores(stores.filter((item) => item.id !== store.id));
       notification.success({
         message: "Store has been deleted successfully",
         placement: "topRight",
