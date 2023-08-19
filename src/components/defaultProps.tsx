@@ -6,6 +6,7 @@ import {
 import {
   AiOutlineDashboard,
   AiOutlineGift,
+  AiOutlineShop,
   AiOutlineTag,
 } from "react-icons/ai";
 import { ROUTES } from "../routes/routes";
@@ -23,6 +24,11 @@ export default {
         path: "/products",
         name: "Products",
         icon: <AiOutlineGift />,
+      },
+      {
+        path: "/stores",
+        name: "Stores",
+        icon: <AiOutlineShop />,
       },
       {
         path: "/",

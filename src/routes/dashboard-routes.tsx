@@ -1,6 +1,7 @@
 import { DashboardPage } from "../pages/DashboardPage";
 import { CategoryPage } from "../pages/category/CategoryPage";
 import { ProductPage } from "../pages/product/ProductPage";
+import { StorePage } from "../pages/store/StorePage";
 import { TagPage } from "../pages/tag/TagPage";
 import { ROUTES } from "./routes";
 
@@ -19,7 +20,7 @@ export const dashboardRoutes = [
   },
   {
     path: ROUTES.STORES.INDEX,
-    element: <DashboardPage />,
+    element: <StorePage />,
   },
   {
     path: ROUTES.PRODUCTS.INDEX,

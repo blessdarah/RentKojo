@@ -4,14 +4,14 @@ import { recoilPersist } from "recoil-persist";
 
 const { persistAtom } = recoilPersist();
 
-export const categoryAtom = atom({
+export const categoryAtom = atom<Category>({
   key: "category",
   default: emptyCategory,
   effects_UNSTABLE: [persistAtom],
 });
 
-export const categoryListAtom = atom({
+export const categoryListAtom = atom<Category[]>({
   key: "category-list",
-  default: [] as Category[],
+  default: [],
   effects_UNSTABLE: [persistAtom],
 });

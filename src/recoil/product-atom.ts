@@ -3,14 +3,14 @@ import { Product } from "../models/Product";
 import { recoilPersist } from "recoil-persist";
 const { persistAtom } = recoilPersist();
 
-export const productAtom = atom({
+export const productAtom = atom<Product>({
   key: "product",
   default: undefined,
   effects_UNSTABLE: [persistAtom],
 });
 
-export const productListAtom = atom({
+export const productListAtom = atom<Product[]>({
   key: "product-list",
-  default: [] as Product[],
+  default: [],
   effects_UNSTABLE: [persistAtom],
 });
