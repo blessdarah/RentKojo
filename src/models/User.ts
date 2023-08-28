@@ -3,6 +3,17 @@ export type User = {
   lastname: string;
   email: string;
   whatsappNumber: string;
+  address: string;
+  authStrategy: string;
+  avatar: string;
+  city: string;
+  country: string;
+  id: string;
+  password: string;
+  phoneNumber: string;
+  token: string;
+  username: string;
+  verified: boolean;
 };
 
 export const emptyUser: User = {
@@ -10,4 +21,15 @@ export const emptyUser: User = {
   lastname: "",
   email: "",
   whatsappNumber: "",
+  address: "",
+  authStrategy: "",
+  avatar: "",
+  city: "",
+  country: "",
+  id: "",
+  password: "",
+  phoneNumber: "",
+  token: "",
+  username: "",
+  verified: false
 };

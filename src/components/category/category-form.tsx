@@ -25,6 +25,7 @@ export const CategoryForm: React.FC<Props> = ({
   initFormData(form, formMode, category);
 
   const onFinish = async (values: Category) => {
+    debugger;
     try {
       let response: any;
       if (formMode === "create") {
