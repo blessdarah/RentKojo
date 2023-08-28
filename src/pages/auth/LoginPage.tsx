@@ -27,6 +27,7 @@ export const LoginPage: React.FC = () => {
       const response = await AuthService.login(values);
       if (response.success) {
         setUser(response.data);
+        localStorage.setItem("user", JSON.stringify(response.data));
         setDefaultStates();
         setIsLoading(false);
         navigate("/dashboard");

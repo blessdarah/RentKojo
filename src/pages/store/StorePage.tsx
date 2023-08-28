@@ -13,7 +13,7 @@ export const StorePage: React.FC = () => {
   const { setShow, setTitle, setContent } = useModalContext();
   const stores = useRecoilValue(storeListAtom);
   const { storeTableColumns } = useStoreColumns();
-  console.log("stores: ", stores);
+  // console.log("stores: ", stores);
   const showModal = () => {
     setTitle("Create store");
     setContent(<StoreForm />);

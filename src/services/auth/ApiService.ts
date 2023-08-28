@@ -1,11 +1,27 @@
 import axios from "axios";
 
+const user = JSON.parse(localStorage.getItem("user")!);
+
+debugger;
+const apiHeaders = {
+  headers: {
+    Accept: "application/json",
+    Authorization: "",
+  },
+};
+
+const apiConfig = () => {
+  apiHeaders.headers["Authorization"] = `Bearer ${user.token}`;
+  return apiHeaders;
+};
+
 export const apiService = {
-  get: (url: string) => axios.get(url).then((response) => response.data),
+  get: (url: string) =>
+    axios.get(url, apiConfig()).then((response) => response.data),
   post: (url: string, body: {}) =>
-    axios.post(url, body).then((response) => response.data),
+    axios.post(url, body, apiConfig()).then((response) => response.data),
   put: (url: string, body: {}) =>
-    axios.put(url, body).then((response) => response.data),
-  delete: (url: string, body: {}) =>
-    axios.delete(url, body).then((response) => response.data),
+    axios.put(url, body, apiConfig()).then((response) => response.data),
+  delete: (url: string) =>
+    axios.delete(url, apiConfig()).then((response) => response.data),
 };

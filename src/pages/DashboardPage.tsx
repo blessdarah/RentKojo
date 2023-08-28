@@ -4,8 +4,12 @@ import { TinyArea, Column } from "@ant-design/plots";
 import { ProCard } from "@ant-design/pro-components";
 import { Avatar, Col, List, Row } from "antd";
 import { AiFillUpCircle } from "react-icons/ai";
+import { useRecoilValue } from "recoil";
+import { userAtom } from "../recoil/user-atom";
 
 export const DashboardPage: React.FC = () => {
+  const user = useRecoilValue(userAtom);
+  console.log(user)
   const recentClients = [
     {
       title: "Ant Design Title 1",
