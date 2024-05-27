@@ -1,7 +1,5 @@
 import axios from "axios";
 
-const user = JSON.parse(localStorage.getItem("user")!);
-
 const apiHeaders = {
   headers: {
     Accept: "application/json",
@@ -10,7 +8,8 @@ const apiHeaders = {
 };
 
 const apiConfig = () => {
-  apiHeaders.headers["Authorization"] = `Bearer ${user.token}`;
+  const user = JSON.parse(localStorage.getItem("user")!);
+  apiHeaders.headers["Authorization"] = `Bearer ${user ? user.token : ""}`;
   return apiHeaders;
 };
 
