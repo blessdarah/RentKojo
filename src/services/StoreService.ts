@@ -11,5 +11,5 @@ export const StoreService = {
   update: async (data: Store): Promise<ApiResponse<Store>> =>
     apiService.put(`${apiUrl}/stores/${data.id}`, data),
   delete: async (data: Store): Promise<ApiResponse<Store>> =>
-    apiService.delete(`${apiUrl}/stores/${data.id}`, data),
+    apiService.delete(`${apiUrl}/stores/${data.id}`),
 };
