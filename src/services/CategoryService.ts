@@ -7,7 +7,6 @@ export const CategoryService = {
   list: async (): Promise<ApiResponse<Category[]>> =>
     apiService.get(`${apiUrl}/categories`),
   create: async (data: Category): Promise<ApiResponse<Category>> => {
-    debugger
     return apiService.post(`${apiUrl}/categories`, data)
   },
   update: async (data: Category): Promise<ApiResponse<Category>> =>

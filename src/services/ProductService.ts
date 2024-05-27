@@ -11,5 +11,5 @@ export const ProductService = {
   update: async (data: Product): Promise<ApiResponse<Product>> =>
     apiService.put(`${apiUrl}/products/${data.id}`, data),
   delete: async (data: Product): Promise<ApiResponse<Product>> =>
-    apiService.delete(`${apiUrl}/products/${data.id}`, data),
+    apiService.delete(`${apiUrl}/products/${data.id}`),
 };

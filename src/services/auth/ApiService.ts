@@ -2,7 +2,6 @@ import axios from "axios";
 
 const user = JSON.parse(localStorage.getItem("user")!);
 
-debugger;
 const apiHeaders = {
   headers: {
     Accept: "application/json",

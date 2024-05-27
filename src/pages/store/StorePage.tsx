@@ -1,6 +1,6 @@
 import { ProCard } from "@ant-design/pro-components";
-import { Button, Card, Space, Table } from "antd";
-import React from "react";
+import { Button, Card, Space, Table, TableProps } from "antd";
+import React, { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import AppShell from "../../components/app-shell/AppShell";
 import { useStoreColumns } from "../../components/store/store-columns";
@@ -13,12 +13,26 @@ export const StorePage: React.FC = () => {
   const { setShow, setTitle, setContent } = useModalContext();
   const stores = useRecoilValue(storeListAtom);
   const { storeTableColumns } = useStoreColumns();
-  // console.log("stores: ", stores);
+  const [pagination, setPagination] = useState({
+    current: 1, // Current page number
+    pageSize: 10, // Number of items per page
+    total: 0, // Total number of items
+  });
+  
   const showModal = () => {
     setTitle("Create store");
     setContent(<StoreForm />);
     setShow(true);
   };
+
+  const onChange: TableProps<Store>['onChange'] = (pagination: any, filters, sorter, extra) => {
+    setPagination({ ...pagination})
+    console.log('params', pagination, filters, sorter, extra);
+  };
+
+  useEffect(() => {
+
+  }, [])
 
   return (
     <AppShell>
@@ -38,6 +52,8 @@ export const StorePage: React.FC = () => {
             columns={storeTableColumns}
             rowKey="id"
             scroll={{ x: 500 }}
+            onChange={onChange}
+            pagination={pagination}
           />
         </Card>
       </Space>

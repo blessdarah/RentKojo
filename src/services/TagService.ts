@@ -11,5 +11,5 @@ export const TagService = {
   update: async (data: Tag): Promise<ApiResponse<Tag>> =>
     apiService.put(`${apiUrl}/tags/${data.id}`, data),
   delete: async (data: Tag): Promise<ApiResponse<Tag>> =>
-    apiService.delete(`${apiUrl}/tags/${data.id}`, data),
+    apiService.delete(`${apiUrl}/tags/${data.id}`),
 };
