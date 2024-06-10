@@ -1,4 +1,4 @@
-import { App, Button, Popconfirm, Space } from "antd";
+import { App, Button, Image, Popconfirm, Space } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { AiOutlineDelete, AiTwotoneEdit } from "react-icons/ai";
 import { Product } from "../../models/Product";
@@ -8,6 +8,7 @@ import dayjs from "dayjs";
 import { useRecoilState } from "recoil";
 import { productListAtom } from "../../recoil/product-atom";
 import { ProductService } from "../../services/ProductService";
+import { resourceUrl } from "../../constants/common.constants";
 
 export const useProductColumns = () => {
   const { setShow, setTitle, setContent } = useModalContext();
@@ -46,19 +47,14 @@ export const useProductColumns = () => {
 
   const productTableColumns: ColumnsType<Product> = [
     {
-      title: "Description",
-      dataIndex: "description",
-      sorter: (a, b) => (a.description > b.description ? 1 : -1),
+      title: "Name",
+      dataIndex: "name",
+      sorter: (a, b) => (a.name > b.name ? 1 : -1),
     },
     {
       title: "Amount",
       dataIndex: "amount",
       sorter: (a, b) => (a.amount > b.amount ? 1 : -1),
-    },
-    {
-      title: "Long description",
-      dataIndex: "longDescription",
-      sorter: (a, b) => (a.description > b.description ? 1 : -1),
     },
     {
       title: "Condition",
@@ -73,6 +69,22 @@ export const useProductColumns = () => {
       title: "Available till",
       dataIndex: "availableEndDate",
       render: (_, row) => dayjs(row.availabilityEndDate).format("DD/MM/YYYY"),
+    },
+    {
+      title: "Duration Of Rentage",
+      dataIndex: "durationOfRentage",
+    },
+    {
+      title: "Image",
+      dataIndex: "imageBannerUrl",
+      render: (_, row) => (
+        <Image
+          src={`${resourceUrl}/uploads/products/${row.images[0]}`}
+          width={35}
+          height={35}
+          style={{ borderRadius: "8px" }}
+        />
+      ),
     },
     {
       title: "Options",

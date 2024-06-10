@@ -7,6 +7,7 @@ import { StoreForm } from "./store-form";
 import { StoreService } from "../../services/StoreService";
 import { useRecoilState } from "recoil";
 import { storeListAtom } from "../../recoil/store-atom";
+import { resourceUrl } from "../../constants/common.constants";
 
 export const useStoreColumns = () => {
   const { setShow, setTitle, setContent } = useModalContext();
@@ -51,11 +52,11 @@ export const useStoreColumns = () => {
       dataIndex: "imageBannerUrl",
       render: (_, row) => (
         <Image
-          src={row.imageBannerUrl}
+          src={`${resourceUrl}/uploads/stores/${row.imageBannerUrl}`}
           width={35}
           height={35}
           style={{ borderRadius: "8px" }}
-        ></Image>
+        />
       ),
     },
     {
